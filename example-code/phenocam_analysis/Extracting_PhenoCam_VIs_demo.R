@@ -11,7 +11,7 @@ library(lubridate)
 library(tidyverse)
 
 #create the strucuture folder:
-folder.path<-"./data-raw/"
+folder.path<-"./data-raw/PhenoCam_analysis_demo/"
 # structureFolder(folder.path)  ##create the folders for analysis
 
 #-----set the path----
@@ -20,10 +20,10 @@ path.image.ref <- paste(folder.path,'REF/',sep='')  #here is the path for refere
 ## set path where to store the ROI coordinates
 path.roi <- paste(folder.path,'ROI/',sep='')
 ## define path with all images to be processed
-# img.path <- paste(folder.path,'IMG/',sep='')
-img.path <- "D:/data/Test_data/PhenoCam_GCC/Lorenz_Walthert/Test_greenness/change_name/" #change the path
+img.path <- paste(folder.path,'IMG/',sep='')
+# img.path <- "D:/data/Test_data/PhenoCam_GCC/Lorenz_Walthert/Test_greenness/change_name/" #change the path
 ## define in which folder VI data will be stored
-vi.path <- paste(folder.path,'VI/test/',sep='')
+vi.path <- paste(folder.path,'VI/',sep='')
 
 
 #---------------------
@@ -32,7 +32,7 @@ vi.path <- paste(folder.path,'VI/test/',sep='')
 
 roi.names <- c('tree1', 'tree2')
 nroi=length(roi.names)
-drawROI<-FALSE
+drawROI<-FALSE  ## set as TRUE if need to select the ROIs
 
 if (drawROI == TRUE){
 
@@ -68,24 +68,24 @@ filtered.VI_tree2<-filtered.VI_tree2 %>%
   mutate(date=doy,doy=NULL)
 
 #---------------------------------
-#(4)plotting
+#(4) plotting
 #---------------------------------
-save.path<-"./test/figures/"
-#
-png(file=paste0(save.path,"tree1 greenness.png"))
+# save.path<-"./test/figures/"
+# #
+# png(file=paste0(save.path,"tree1 greenness.png"))
 #tree1
 plot(VI.data$tree1$date,VI.data$tree1$gi.av,xlab="",ylab="GCC",pch=16,col="gray")
 points(filtered.VI_tree1$date,filtered.VI_tree1$max.filtered,
        col="forestgreen",pch=16)
 legend("topleft",pch = 16,bty="n",col = c("gray","forestgreen"),
        legend=c("each photo","daily greenness"))
-dev.off()
+# dev.off()
 
 #tree2
-png(file=paste0(save.path,"tree2 greenness.png"))
+# png(file=paste0(save.path,"tree2 greenness.png"))
 plot(VI.data$tree2$date,VI.data$tree2$gi.av,xlab="",ylab="GCC",pch=16,col="gray")
 points(filtered.VI_tree2$date,filtered.VI_tree2$max.filtered,
        col="forestgreen",pch=16)
 legend("topleft",pch = 16,bty="n",col = c("gray","forestgreen"),
        legend=c("each photo","daily greenness"))
-dev.off()
+# dev.off()

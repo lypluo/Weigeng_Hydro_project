@@ -18,7 +18,7 @@ folder.path<-"./data-raw/PhenoCam_analysis_demo/"
 ## set path of the reference image where to draw ROIs. Only one jpeg image is allowed in this folder.
 path.image.ref <- paste(folder.path,'REF/',sep='')  #here is the path for reference image
 ## set path where to store the ROI coordinates
-path.roi <- paste(folder.path,'ROI/',sep='')
+path.roi <- paste(folder.path,'ROI/test/',sep='')
 ## define path with all images to be processed
 img.path <- paste(folder.path,'IMG/',sep='')
 # img.path <- "D:/data/Test_data/PhenoCam_GCC/Lorenz_Walthert/Test_greenness/change_name/" #change the path
@@ -32,7 +32,7 @@ vi.path <- paste(folder.path,'VI/',sep='')
 
 roi.names <- c('tree1', 'tree2')
 nroi=length(roi.names)
-drawROI<-FALSE  ## set as TRUE if need to select the ROIs
+drawROI<-TRUE  ## set as TRUE if need to select the ROIs
 
 if (drawROI == TRUE){
 

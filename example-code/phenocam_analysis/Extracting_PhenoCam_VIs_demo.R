@@ -10,8 +10,10 @@ library(zoo)
 library(lubridate)
 library(tidyverse)
 
+setwd("F:\\Big_data_master_thesis/Luo_project/Weigeng_Hydro_project/")
+
 #create the strucuture folder:
-folder.path<-"./data-raw/PhenoCam_analysis_demo/"
+folder.path<-"F:\\Big_data_master_thesis/Luo_project/Weigeng_Hydro_project/data-raw/PhenoCam_analysis_demo/"
 # structureFolder(folder.path)  ##create the folders for analysis
 
 #-----set the path----
@@ -89,3 +91,4 @@ points(filtered.VI_tree2$date,filtered.VI_tree2$max.filtered,
 legend("topleft",pch = 16,bty="n",col = c("gray","forestgreen"),
        legend=c("each photo","daily greenness"))
 # dev.off()
+
